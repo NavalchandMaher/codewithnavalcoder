@@ -1,0 +1,157 @@
+<div style="z-index: 1;">
+<section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row">
+            <div class="col-lg-3 entries">
+                <article class="entry entry-single" style="margin: 0%;padding: 0px;">
+
+                    <div class="sidebar" style="margin: 0%;" *ngIf="myBlogInfoList1">
+
+                        <h3 class="sidebar-title">Search</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text" name="btnname" [(ngModel)]="searchname" (input)="searchBtn()">
+                                <!-- <button type="submit"><i class="bi bi-search"></i></button> -->
+                            </form>
+                        </div><!-- End sidebar search formn-->
+
+                        <div class="sidebar-item categories">
+                            <ul>
+
+                                <li *ngFor="let bloginfo of myBlogInfoList1.blogInfoArr" [class.active]="i == currentIndex"
+                                    (click)="setActiveBlog(bloginfo.button_name)">
+
+
+                                    <div *ngIf="bloginfo.button_name!=selectedButton" class="unSelected">
+                                        {{ bloginfo.button_name }}
+                                      </div>
+                                      <div *ngIf="bloginfo.button_name==selectedButton" class="selectedBlog">
+                                        {{ bloginfo.button_name }}
+                                      </div>
+                                   
+                                </li>
+
+                            </ul>
+                        </div><!-- End sidebar categories-->
+                        <button class="btn btn-primary" (click)="newBlog()">Add New Blog</button>
+                    </div><!-- End sidebar -->
+                </article>
+
+            </div><!-- End blog sidebar -->
+
+
+
+
+            <div class="col-lg-9 entries">
+                <article class="entry entry-single">
+          <div class="form-group">
+                                    <label class="checkbox-inline">Select First Course </label>
+                                        <select name="course" id="course"  (change)="onChange()"
+                                        [(ngModel)]="selectedCourse1"  #course="ngModel" class="form-control">
+                                            <option value="select">Selete Course</option>
+                                        <option *ngFor="let cs of myCourseList.bloggerBlogArr" [value]="cs.keyword">{{cs.title}}</option>
+                                        </select>  
+                               </div>
+                               </article>
+                <article class="entry entry-single" *ngIf="showForm" >
+
+
+                    <form #ProgramForm="ngForm">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-titel">{{formTitle}}</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                
+                                <div class="form-group">
+                                    <label for="button_name">Button Name</label>
+                                    <input type="text" required id="button_name" name="button_name"
+                                        [(ngModel)]="blog.button_name" #button_name="ngModel" class="form-control">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="title">Program Titel</label>
+                                    <textarea class="form-control" rows="1" required id="title" name="title"
+                                        [(ngModel)]="blog.title" #title="ngModel">Enter Titel Hear..</textarea>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="videolink">Youtube Video Link</label>
+                                    <textarea class="form-control" rows="1" required id="videolink" name="videolink"
+                                        [(ngModel)]="blog.videolink" #videolink="ngModel">Enter link hear</textarea>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="question">Program Question</label>
+
+                                    <textarea class="form-control" rows="2" required id="question" name="question"
+                                        [(ngModel)]="blog.question"
+                                        #question="ngModel">Enter Tquestion Hear..</textarea>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="program">Program</label>
+
+                                    <textarea class="form-control parogramLayout" rows="15" required id="program"
+                                        name="program" [(ngModel)]="blog.program"
+                                        #program="ngModel">Enter program Hear..</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="output">Output</label>
+
+                                    <textarea class="form-control parogramLayout" rows="5" required id="output" name="output"
+                                        [(ngModel)]="blog.output" #output="ngModel">Enter output Hear..</textarea>
+                                    <div class="alert alert-danger" *ngIf="output.invalid && output.touched">
+                                        output is required
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="explinaion">Explinaion</label>
+
+                                    <angular-editor [placeholder]="'Enter text here...'" name="explinaion"
+                                        [(ngModel)]="blog.explinaion" [config]="editorConfig"></angular-editor>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="publish">publish</label>
+                                    <br>
+                                    <input class="checkboxsize" [(ngModel)]="blog.publish" [ngModelOptions]="{standalone: true}"
+                                      type="checkbox" id="myCheck">
+                                  </div>
+
+                            </div>
+                            <div class="panel-footer">
+                                <div *ngIf="addButton">
+                                    <button type="submit" class="btn btn-primary" (click)="addBlog()">Add Blog</button>
+                                </div>
+                                <div *ngIf="!addButton">
+                                    <button type="submit" class="btn btn-primary" (click)="deleteBlogs()">Delete
+                                        Blog</button>
+                                    <button type="submit" class="btn btn-primary" (click)="updateBlogs()">Update
+                                        Blog</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </article><!-- End blog entry -->
+
+
+
+            </div><!-- End blog entries list -->
+
+
+        </div>
+
+    </div>
+</section><!-- End Blog Section -->
+</div>

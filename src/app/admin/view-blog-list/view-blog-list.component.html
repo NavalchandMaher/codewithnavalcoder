@@ -1,0 +1,107 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" [ngClass]="{ 'show-sidebar': showMobileMenu }" dir="ltr" data-theme="light"
+  data-layout="vertical" [attr.data-sidebartype]="sidebartype" data-sidebar-position="absolute"
+  data-header-position="relative" data-boxed-layout="full">
+  <!-- ============================================================== -->
+  <!-- Topbar header - style you can find in topbar.scss -->
+  <!-- ============================================================== -->
+  <header class="topbar fixed-top" data-navbarbg="skin5" [style]="headercolor">
+    <nav class="d-flex top-navbar navbar-expand-lg navbar-dark">
+
+      <div>
+        <!-- This is for the sidebar toggle which is visible on mobile only -->
+        <a (click)="showMobileMenu = !showMobileMenu" class="nav-toggler waves-effect waves-light d-block d-lg-none"
+          href="javascript:void(0)">
+          <i [ngClass]="showMobileMenu ? 'bi bi-text-left fs-6' : 'bi bi-text-left fs-6'"></i>
+        </a>
+
+        <a class="topbartoggler d-block d-lg-none waves-effect waves-light" href="javascript:void(0)"
+          data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed">
+          <i class="bi bi-text-right fs-6"></i>
+        </a>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Logo -->
+      <!-- ============================================================== -->
+
+
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5"
+        [ngbCollapse]="!isCollapsed">
+        <app-user-navigation (toggleSidebar)="toggleSidebarType()" class="w-100"></app-user-navigation>
+
+      </div>
+    </nav>
+    <mat-progress-bar *ngIf="initial" mode="indeterminate"></mat-progress-bar>
+
+  </header>
+  <!-- ============================================================== -->
+  <!-- Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <aside class="left-sidebar" data-sidebarbg="skin6" (mouseover)="Logo()" (mouseout)="Logo()">
+    <main id="main">
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+          <div class="sidebar">
+
+            <h3 class="sidebar-title">Search</h3>
+            <div class="sidebar-item search-form">
+              <form action="">
+                <input type="text" name="btnname" [(ngModel)]="searchname" (input)="searchBtn()">
+              </form>
+            </div><!-- End sidebar search formn-->
+
+            <!-- <h3 class="sidebar-title">Categories</h3> -->
+            <div class="sidebar-item categories">
+              <ul>
+
+                <li *ngFor="let blog of myBlogInfoList1.blogInfoArr" [class.active]="i == currentIndex"
+                  (click)="setActiveBlog(blog.button_name)">
+                  <div *ngIf="blog.button_name!=selectedButton" class="unSelected">
+                    {{ blog.button_name }}
+                  </div>
+                  <div *ngIf="blog.button_name==selectedButton" class="selectedBlog">
+                    {{ blog.button_name }}
+                  </div>
+                </li>
+              </ul>
+            </div><!-- End sidebar categories-->
+
+          </div><!-- End sidebar -->
+
+        </div><!-- End blog sidebar -->
+      </section><!-- End Blog Section -->
+
+    </main><!-- End #main -->
+  </aside>
+
+  <div class="page-wrapper">
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col">
+          <router-outlet>
+          </router-outlet>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer text-center">
+      <div class="copyright">
+        &copy; Copyright 2022<strong><span> CodeWithNaval</span></strong>.
+    </div>
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
+</div>

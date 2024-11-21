@@ -1,0 +1,102 @@
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+      <div class="col-lg-3 entries">
+        <article class="entry entry-single" style="margin: 0%;padding: 0px;">
+
+          <div class="sidebar" style="margin: 0%;">
+
+            <h3 class="sidebar-title">Search</h3>
+            <div class="sidebar-item search-form">
+              <form action="">
+                <input type="text">
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div><!-- End sidebar search formn-->
+
+            <h3 class="sidebar-title">Categories</h3>
+            <div class="sidebar-item categories">
+              <ul>
+ 
+                <li *ngFor="let course of bloggerBlog.bloggerBlogArr"
+                  (click)="setActiveCourse(course.keyword)">
+                  {{ course.title }} 
+                </li>
+
+              </ul>
+            </div><!-- End sidebar categories-->
+            <button class="btn btn-primary" (click)="newCourse()">Add New Course</button>
+          </div><!-- End sidebar -->
+        </article>
+
+      </div><!-- End blog sidebar -->
+
+      <div class="col-lg-9 entries">
+
+        <article class="entry entry-single">
+
+          <form #myForm="ngForm">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-titel">{{formTitle}}</h3>
+              </div>
+              <div class="panel-body">
+
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" id="title" (change)="setKeyword()" name="title" [(ngModel)]="course.title" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="about">About</label>
+                  <input type="text" id="about" name="about" [(ngModel)]="course.about" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="author">Author</label>
+                  <input type="text" id="author" name="author" [(ngModel)]="course.author" class="form-control">
+                </div>
+                <!-- <div class="form-group">
+                  <label for="keyword">Keyword</label>
+                  <input type="text" id="keyword" name="keyword" [(ngModel)]="course.keyword" class="form-control">
+                </div> -->
+
+                <img [src]="url" height="200"> <br />
+                <input #fileInput type='file' (change)="onSelectFile($event)">
+                <!-- <button type="button" (click)="reset(fileInput)">Reset</button> -->
+
+                <div class="form-group">
+                  <label for="publish">publish</label>
+                  <br>
+                  <input class="checkboxsize" [(ngModel)]="course.publish" [ngModelOptions]="{standalone: true}"
+                    type="checkbox" id="myCheck">
+                </div>
+              </div>
+              <br>
+              <div class="panel-footer">
+                <div *ngIf="addButton">
+                  <button class="btn btn-primary" (click)="addCourse(fileInput)">Add</button>
+                </div>
+                <div *ngIf="!addButton">
+                  <button class="btn btn-primary" (click)="deleteCourse()">Delete</button>
+
+                  <button type="submit" class="btn btn-primary" (click)="updateCourse(fileInput)">Update</button>
+                </div>
+                <p>{{ message }}</p>
+              </div>
+
+            </div>
+          </form>
+
+        </article><!-- End blog entry -->
+
+
+
+      </div><!-- End blog entries list -->
+
+
+    </div>
+
+  </div>
+</section><!-- End Blog Section -->

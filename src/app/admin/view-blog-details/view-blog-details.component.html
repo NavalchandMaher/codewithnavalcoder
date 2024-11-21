@@ -1,0 +1,146 @@
+<section id="blog" class="blog" *ngIf="currentblogs">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+
+      <div class="col-lg-9 entries">
+
+
+        <article class="entry entry-single">
+
+         
+
+          <div class="entry-content">
+            <div *ngIf="currentblogs.videolink" class="ifremwrapper">
+              <iframe [src]="currentblogs.videolink+'' | safe: 'resourceUrl'" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <h2 class="entry-title" *ngIf="currentblogs.title" style="margin-top: 5%;">
+            <a>{{currentblogs.title}}</a>
+          </h2>
+          <div class="entry-content" *ngIf="currentblogs.question">
+            <blockquote>
+              <p>
+
+                {{currentblogs.question}}
+
+              </p>
+
+            </blockquote>
+          </div>
+
+          <div class="entry-content">
+            <div *ngIf="currentblogs.explinaion" [innerHTML]="currentblogs.explinaion"></div>
+          </div>
+
+          <div class="entry-content" *ngIf="currentblogs.program">
+            <button (click)="copyMessage(currentblogs.program)" value="click to copy">Copy this</button>
+
+            <pre><code [highlight]="currentblogs.program"  class="parogramLayout" ></code></pre>
+
+            <h4>Output</h4>
+            <pre><code [highlight]="currentblogs.output"  class="parogramLayout" ></code></pre>
+
+          </div>
+          <div class="entry-content">
+            <div class="row">
+              <div class="col-2">
+                <button *ngIf="preButton" class="previousBtn" (click)="previousBtn()" ><img src="assets/img/buttonicon/previous-64.png" class="btnSty" alt=""></button>
+                </div>
+                <div class="col-8">
+
+                </div>
+                <div class="col-2">
+                  <button *ngIf="nextButton" class="nextBtn" (click)="nextBtn()" ><img src="assets/img/buttonicon/next-64.png" class="btnSty" alt=""></button>
+                </div>
+
+            </div>
+           
+            
+
+          </div>
+            
+        
+          <div class="entry-footer">
+
+            <script src="https://apis.google.com/js/platform.js"></script>
+
+            
+            <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div>
+            <!-- <i class="fa fa-thumbs-up">Like</i> |
+            <i class="fa fa-share-alt" aria-hidden="true">Share</i> -->
+            <!-- <i class="fa fa-thumbs-up"></i>
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                 
+                  <li><a href="#">Like</a></li>
+                </ul>
+
+                <i ></i>
+                <ul>
+                  <li><a href="#">Share</a></li>
+                </ul> -->
+          </div>
+        </article><!-- End blog entry -->
+
+        <div class="blog-comments">
+
+          <h4 class="comments-count">{{blogComment.comments.length}} Comments</h4>
+
+          <div *ngIf="blogComment">
+            <div id="comment-1" class="comment" *ngFor="let comment of blogComment.comments">
+              <div class="d-flex">
+                <div class="comment-img"><img src="assets/img/blog/pp.png" alt=""></div>
+                <div>
+                  <h5><a href="">{{comment.userName}}</a></h5>
+                  <time>{{comment.date | date }}</time>
+                  <p>
+                    {{comment.content}} </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reply-form">
+            <h4>Leave a Reply</h4>
+            <p>Your email address will not be published. Required fields are marked * </p>
+            <form action="">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input name="name" type="text" [(ngModel)]="comment.userName" class="form-control"
+                    placeholder="Your Name*">
+                </div>
+                <div class="col-md-6 form-group">
+                  <input name="email" type="text" [(ngModel)]="comment.email" class="form-control"
+                    placeholder="Your Email*">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col form-group">
+                  <textarea name="comment" [(ngModel)]="comment.content" class="form-control"
+                    placeholder="Your Comment*"></textarea>
+                </div>
+              </div>
+              <button type="submit" (click)="giveComment()"  [disabled]="postcomment" class="btn btn-primary">Post Comment</button>
+
+            </form>
+
+          </div>
+
+        </div><!-- End blog comments -->
+
+      </div><!-- End blog entries list -->
+
+      <div class="col-lg-4">
+
+
+
+      </div><!-- End blog sidebar -->
+
+    </div>
+
+  </div>
+</section><!-- End Blog Section -->

@@ -1,0 +1,297 @@
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center" >
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">We offer Free Programming Language Cources.</h1>
+            <br><br>
+            <h2 data-aos="fade-up">We don't teach people we educated them.
+            </h2>
+            <div data-aos="fade-up">
+              <div class="text-center text-lg-start">
+                <a routerLink="/start/courses"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Get Started</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Values Section ======= -->
+      <section id="values" class="values">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Our Cources</h2>
+            <p>Start Learning Today </p>
+          </header>
+
+          <div class="row">
+            <mat-progress-bar *ngIf="!myCourseList" mode="indeterminate"></mat-progress-bar>
+            <div *ngFor="let course of myCourseList;" class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="box">
+                <img [src]="course.image" class="img-fluid" alt="">
+                <h3>{{course.title}}</h3>
+                <p>{{course.about}}</p>
+                <button type="submit" (click)="showBlogs(course.keyword)" class="btn">Enroll Now</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section><!-- End Values Section -->
+
+      <!-- ======= Counts Section ======= -->
+      <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+
+          <div class="row gy-4">
+
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p>Happy Clients</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p>Projects</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-headset" style="color: #15be56;"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p>Hours Of Support</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-people" style="color: #bb0852;"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p>Hard Workers</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Counts Section -->
+
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Team</h2>
+            <p>Our hard working team</p>
+          </header>
+
+          <div class="row gy-4">
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="member-img">
+                  <img src="assets/img/team/team1.jpg" class="img-fluid" alt="">
+                  <!-- <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div> -->
+                </div>
+                <div class="member-info">
+                  <h4>Navalchand Rajput</h4>
+                  <span>Chief Executive Officer</span>
+                  <p>We belive to an educate other not to teach. We will give better idea to learn yourself.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                <div class="member-img">
+                  <img src="assets/img/team/team2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                    <a><i class="bi bi-twitter"></i></a>
+                    <a><i class="bi bi-facebook"></i></a>
+                    <a><i class="bi bi-instagram"></i></a>
+                    <a><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Product Manager</span>
+                  <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis.
+                    Voluptate sed quas reiciendis animi neque sapiente.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="member">
+                <div class="member-img">
+                  <img src="assets/img/team/team3.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>William Anderson</h4>
+                  <span>CTO</span>
+                  <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut
+                    architecto porro aspernatur molestiae modi.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                <div class="member-img">
+                  <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Amanda Jepson</h4>
+                  <span>Accountant</span>
+                  <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid
+                    doloremque
+                    ut possimus ipsum officia.</p>
+                </div>
+              </div>
+            </div> -->
+
+          </div>
+
+        </div>
+
+      </section><!-- End Team Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+          </header>
+
+          <div class="row gy-4">
+
+            <div class="col-lg-6">
+
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <p>Kothroud Pune,<br>Maharashtra, India IN 423703</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>codewithnaval85@gmail.com</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-clock"></i>
+                    <h3>Open Hours</h3>
+                    <p>24/7</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6">
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row gy-4">
+
+                  <div class="col-md-6">
+                    <input type="text" name="name"  [(ngModel)]="contact.name" class="form-control" placeholder="Your Name" required>
+                  </div>
+
+                  <div class="col-md-6 ">
+                    <input type="email" class="form-control" [(ngModel)]="contact.email" name="email" placeholder="Your Email" required>
+                  </div>
+
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" [(ngModel)]="contact.subject" name="subject" placeholder="Subject" required>
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="message" [(ngModel)]="contact.message" rows="6" placeholder="Message" required></textarea>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                    <button type="submit" (click)="addContactUs()">Send Message</button>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->

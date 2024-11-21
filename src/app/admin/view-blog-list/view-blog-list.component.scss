@@ -1,0 +1,35 @@
+.logobackcolor {
+    background-color: rgb(230, 64, 42);
+}
+
+.blog .sidebar {
+    padding: 10px !important;
+    margin: 0px;
+    margin-top: -36px;
+    box-shadow: yellow;
+    background-color:white;
+}
+
+#main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin5], #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin5] {
+    background: #eb341c;
+}
+
+.entry {
+    padding: 10px !important;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+}
+
+.selectedBlog{
+    color: rgb(146, 199, 0);
+    font-size: 20px;
+}
+
+.unSelected{
+    color: darkslategray;
+}
+
+.unSelected:hover{
+    color: rgb(146, 199, 0);
+    font-size: 20px;
+}

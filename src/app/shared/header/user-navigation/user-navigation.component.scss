@@ -1,0 +1,28 @@
+.header {
+    transition: all 0.5s;
+    z-index: 0;
+    padding: 20px 0;
+    background-color: rgb(228, 13, 13);
+}
+
+.navfont{
+    font-size: 1rem;
+    color: black;
+}
+
+.navfontBrand{
+    font-size: 2rem;
+    color: black;
+    font-family: cursive;
+    font-style: inherit;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(0 0 0 / 55%);
+}
+
+img, svg {
+    vertical-align: middle;
+    height: -webkit-fill-available;
+    margin: 10px;
+}
